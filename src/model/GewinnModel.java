@@ -17,7 +17,7 @@ public class GewinnModel {
         this.computerZahl = (int) (Math.random() * 9) +1;
     }
     public void berechneRunde(int spielerZahl){
-        this.spielerZahl == spielerZahl;
+        this.spielerZahl = spielerZahl;
         if(spielerZahl == computerZahl){
             this.rundenErgebnis = 20;
         } else if(spielerZahl == computerZahl -1) {
@@ -28,6 +28,27 @@ public class GewinnModel {
             this.rundenErgebnis = -10;
         }
         this.gesamtPunkte += this.rundenErgebnis;
+    }
+    public int getComputerZahl() {
+        return computerZahl;
+    }
+    public int getGesamtPunkte() {
+        return gesamtPunkte;
+    }
+    public int getRundenErgebnis() {
+        return rundenErgebnis;
+    }
+    public boolean hatGewonnen(){
+        if (this.gesamtPunkte >= 100){
+            return true;
+        }
+        return false;
+    }
+    public boolean hatVerloren() {
+        if (this.gesamtPunkte < 0) {
+            return true;
+        }
+        return false;
     }
 
 }
