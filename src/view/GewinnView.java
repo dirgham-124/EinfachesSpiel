@@ -74,6 +74,7 @@ public class GewinnView extends JFrame {
 
         JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         btnNochEinmal = new JButton("Noch einmal!");
+        btnNochEinmal.setEnabled(false);
         btnNochEinmal.setActionCommand("NochEinmal");
         btnNochEinmal.addActionListener(controller);
         bottomPanel.add(btnNochEinmal);

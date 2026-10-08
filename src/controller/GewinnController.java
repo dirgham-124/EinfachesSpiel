@@ -32,6 +32,8 @@ public  class GewinnController implements ActionListener {
             }
             m.berechneComputerZahl();
             m.berechneRunde(eingabeZahl);
+            g.getTxtEingabe().setEditable(false);
+            g.getBtnNochEinmal().setEnabled(true);
             g.getTxtComputerZahl().setText("" + m.getComputerZahl());
             g.getLblRundengebnis().setText("" + m.getRundenErgebnis());
             g.getLblGesamtpunkte().setText("" + m.getGesamtPunkte());
@@ -41,6 +43,8 @@ public  class GewinnController implements ActionListener {
                 g.getLblRundengebnis().setText("Verloren");
             }
         } else if (e.getActionCommand().equals("NochEinmal")) {
+            g.getTxtEingabe().setEditable(true);
+            g.getBtnNochEinmal().setEnabled(false);
             g.getLblRundengebnis().setText("Gib eine Zahl von 1 bis 9");
             g.getTxtComputerZahl().setText("");
             g.getTxtEingabe().setText("");
