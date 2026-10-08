@@ -30,9 +30,40 @@ public class GewinnView extends JFrame {
         lblGesamtpunkte.setFont(new Font("Arial", Font.BOLD, 18));
         gesamtP.add(gesamtT, BorderLayout.NORTH);
         gesamtP.add(lblGesamtpunkte, BorderLayout.CENTER);
-
         topPanel.add(rundenP);
         topPanel.add(gesamtP);
+
+        JPanel centerP = new JPanel(new GridLayout(1, 2));
+
+
+        JPanel spielerP = new JPanel(new BorderLayout());
+        JLabel spielerLabel = new JLabel("Deine Zahl:");
+
+        txtEingabe = new JTextField();
+        txtEingabe.setFont(new Font("Arial", Font.PLAIN, 20));
+        txtEingabe.setHorizontalAlignment(JTextField.CENTER);
+
+
+        spielerP.add(spielerLabel, BorderLayout.NORTH);
+        spielerP.add(txtEingabe, BorderLayout.CENTER);
+
+        //Computer seite:
+        JPanel computerP = new JPanel(new BorderLayout());
+        JLabel computerT = new JLabel("Computer:");
+        computerT.setFont(new Font("Arial", Font.BOLD, 12));
+
+        txtComputerZahl = new JTextField();
+        txtComputerZahl.setEditable(false);
+        txtComputerZahl.setFont(new Font("Arial", Font.PLAIN, 20));
+        txtComputerZahl.setHorizontalAlignment(JTextField.CENTER);
+
+        computerP.add(computerT, BorderLayout.NORTH);
+        computerP.add(txtComputerZahl, BorderLayout.CENTER);
+
+        centerP.add(spielerP);
+        centerP.add(computerP);
+        panel.add(centerP, BorderLayout.CENTER);
+
 
         add(panel);
         setVisible(true);
