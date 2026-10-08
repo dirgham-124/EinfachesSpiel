@@ -37,6 +37,16 @@ public  class GewinnController implements ActionListener {
             g.getTxtComputerZahl().setText("" + m.getComputerZahl());
             g.getLblRundengebnis().setText("" + m.getRundenErgebnis());
             g.getLblGesamtpunkte().setText("" + m.getGesamtPunkte());
+            if (m.getRundenErgebnis() > 0 || m.hatGewonnen()) {
+                g.getLblRundengebnis().setBackground(Color.GREEN);
+                g.getLblGesamtpunkte().setBackground(Color.GREEN);
+            } else if (m.getRundenErgebnis() < 0 || m.hatVerloren()) {
+                g.getLblRundengebnis().setBackground(Color.RED);
+                g.getLblGesamtpunkte().setBackground(Color.RED);
+            } else {
+                g.getLblRundengebnis().setBackground(Color.WHITE);
+                g.getLblGesamtpunkte().setBackground(Color.WHITE);
+            }
             if(m.hatGewonnen()){
                 g.getLblRundengebnis().setText("Gewonnen");
             }else if(m.hatVerloren()){
