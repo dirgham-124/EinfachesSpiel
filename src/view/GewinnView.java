@@ -32,6 +32,8 @@ public class GewinnView extends JFrame {
         JLabel gesamtT = new JLabel("Gesamtpunkte:");
         lblGesamtpunkte = new JLabel("Gesamtpunkte: 30");
         lblGesamtpunkte.setFont(new Font("Arial", Font.BOLD, 18));
+        lblRundengebnis.setOpaque(true);
+        lblRundengebnis.setBackground(Color.WHITE);
         gesamtP.add(gesamtT, BorderLayout.NORTH);
         gesamtP.add(lblGesamtpunkte, BorderLayout.CENTER);
         topPanel.add(rundenP);
