@@ -1,6 +1,9 @@
 package view;
+import controller.GewinnController;
+
 import java.awt.*;
 import javax.swing.*;
+
 
 public class GewinnView extends JFrame {
     private JLabel lblGesamtpunkte;
@@ -9,10 +12,11 @@ public class GewinnView extends JFrame {
     private JTextField txtComputerZahl;
     private JButton btnNochEinmal;
 
-    public GewinnView() {
+    public GewinnView(GewinnController controller) {
         setTitle("Zahlen-Gewinnspiel (v1.0)");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(500, 300);
+
         setLocationRelativeTo(null);
         JPanel panel = new JPanel(new BorderLayout());
         JPanel topPanel = new JPanel(new GridLayout(1, 2));
@@ -42,12 +46,14 @@ public class GewinnView extends JFrame {
         txtEingabe = new JTextField();
         txtEingabe.setFont(new Font("Arial", Font.PLAIN, 20));
         txtEingabe.setHorizontalAlignment(JTextField.CENTER);
+        txtEingabe.setActionCommand("Enter");
+        txtEingabe.addActionListener(controller);
 
 
         spielerP.add(spielerLabel, BorderLayout.NORTH);
         spielerP.add(txtEingabe, BorderLayout.CENTER);
 
-        //Computer seite:
+
         JPanel computerP = new JPanel(new BorderLayout());
         JLabel computerT = new JLabel("Computer:");
         computerT.setFont(new Font("Arial", Font.BOLD, 12));
@@ -66,6 +72,8 @@ public class GewinnView extends JFrame {
 
         JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         btnNochEinmal = new JButton("Noch einmal!");
+        btnNochEinmal.setActionCommand("NochEinmal");
+        btnNochEinmal.addActionListener(controller);
         bottomPanel.add(btnNochEinmal);
         panel.add(bottomPanel, BorderLayout.SOUTH);
 
